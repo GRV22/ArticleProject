@@ -1,0 +1,34 @@
+Article
+{
+	articleId
+	headline
+	articleBody
+	dateCreated
+}
+
+MediaObject
+{
+	articleId
+	mediaId
+	encodingFormat
+	contentUrl
+}
+
+Category
+{
+	categoryId
+	articleId
+	description
+}
+
+
+APIs:
+
+To get an article with articleId 
+GET
+/articles/{articleId}
+
+To get list of articles 
+/articles
+/articles{?articleIds,category,dateField,from,to,offset,limit}
+
