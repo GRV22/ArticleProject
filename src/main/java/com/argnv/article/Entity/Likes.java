@@ -6,7 +6,8 @@ import java.io.Serializable;
 /**
  * Created by root on 3/15/17.
  */
-@Entity(name = "LIKES")
+@Entity
+@Table(name = "LIKES")
 public class Likes implements Serializable{
 
     @Id
