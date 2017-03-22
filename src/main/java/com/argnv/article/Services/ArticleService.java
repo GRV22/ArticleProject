@@ -1,6 +1,6 @@
 package com.argnv.article.Services;
 
-import com.argnv.article.Entity.Article;
+import com.argnv.article.Models.Article;
 
 import java.util.List;
 

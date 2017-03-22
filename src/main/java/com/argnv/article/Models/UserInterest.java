@@ -1,4 +1,4 @@
-package com.argnv.article.Entity;
+package com.argnv.article.Models;
 
 import javax.persistence.*;
 

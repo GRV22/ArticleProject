@@ -1,7 +1,8 @@
 package com.argnv.article.Services;
 
-import com.argnv.article.Entity.Article;
+import com.argnv.article.Models.Article;
 import com.argnv.article.dao.ArticleDAO;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * Created by root on 3/15/17.
  */
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
     private ArticleDAO articleDAO;

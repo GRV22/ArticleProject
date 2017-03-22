@@ -1,15 +1,17 @@
 package com.argnv.article.dao;
 
-import com.argnv.article.Entity.Article;
+import com.argnv.article.Models.Article;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import java.security.Permission;
 import java.util.List;
 
 /**
  * Created by root on 3/15/17.
  */
+@Repository
 public class ArticleDAOImpl implements ArticleDAO {
 
     private SessionFactory sessionFactory;
@@ -26,7 +28,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     @SuppressWarnings({"unchecked", "JpaQlInspection"})
     public List<Article> getArticles() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Article> articles = session.createQuery("from POST").list();
+        List<Article> articles = session.createQuery("from Article").list();
         for(Article article : articles){
 
         }
