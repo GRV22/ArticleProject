@@ -4,11 +4,9 @@ import com.argnv.article.Models.Article;
 import com.argnv.article.Services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,16 +25,9 @@ public class ArticleController {
     }
 
 
-    @RequestMapping(value = "/article",method = RequestMethod.GET)
-    public String listArticles(Model model){
-        model.addAttribute("article",new Article());
-        model.addAttribute("listArticles",this.articleService.getArticles());
-        List<Article> articles = this.articleService.getArticles();
-        for (Article article:
-             articles) {
-            System.out.println(article.getArticleId()+"<=>"+article.getCategoryId()+"<=>"+article.getHeading());
-        }
-        return model.toString();//"article";
+    @RequestMapping(value = "/articles",method = RequestMethod.GET,produces = "application/json")
+    public  List<Article> listArticles(){
+        return this.articleService.getArticles();
     }
 
     @RequestMapping(value = "article/add",method = RequestMethod.POST)
