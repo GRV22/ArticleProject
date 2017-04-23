@@ -4,8 +4,11 @@ import com.argnv.article.Models.Article;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -20,18 +23,15 @@ public class ArticleDAOImpl implements ArticleDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public void addArticle(Article article) {
+    public Long saveArticle(Article article) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(article);
+        return (Long) session.save(article);
     }
 
     @SuppressWarnings({"unchecked", "JpaQlInspection"})
     public List<Article> getArticles() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Article> articles = session.createQuery("from Article").list();
-        for(Article article : articles){
-
-        }
         return articles;
     }
 

@@ -20,8 +20,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Transactional
-    public void addArticle(Article article) {
-        this.articleDAO.addArticle(article);
+    public Long addArticle(Article article) {
+        return this.articleDAO.saveArticle(article);
     }
 
     @Transactional

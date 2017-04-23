@@ -15,13 +15,10 @@ public class Article implements Serializable{
     @Column(name = "id")
     private Long articleId;
 
-    @Column(name = "category_id",columnDefinition = "bigint(20) not null")
-    private Long categoryId;
-
     @Column(columnDefinition = "text not null")
     private String heading;
 
-    @Column(name = "desc",columnDefinition = "text not null")
+    @Column(name = "description",columnDefinition = "text not null")
     private String description;
 
     @Column(name = "is_active",columnDefinition = "boolean default true")
@@ -36,14 +33,6 @@ public class Article implements Serializable{
 
     public void setArticleId(Long articleId) {
         this.articleId = articleId;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
     }
 
     public String getHeading() {

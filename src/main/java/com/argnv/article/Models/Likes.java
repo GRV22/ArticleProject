@@ -13,7 +13,7 @@ public class Likes implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long commentId;
+    private Long likeId;
 
     @Column(name = "user_id",columnDefinition = "bigint(20) unsigned not null")
     private Long userId;
@@ -24,13 +24,6 @@ public class Likes implements Serializable{
     @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
 
-    public Long getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(Long commentId) {
-        this.commentId = commentId;
-    }
 
     public Long getUserId() {
         return userId;
@@ -54,5 +47,13 @@ public class Likes implements Serializable{
 
     public void setCreationTime(Long creationTime) {
         this.creationTime = creationTime;
+    }
+
+    public Long getLikeId() {
+        return likeId;
+    }
+
+    public void setLikeId(Long likeId) {
+        this.likeId = likeId;
     }
 }

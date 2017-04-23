@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class MappingController {
 
-    @RequestMapping(value = "/articles",method = RequestMethod.GET,headers = "Accept=application/json")//,produces = "application/json")
+    @RequestMapping(value = "/articlesx",method = RequestMethod.GET,headers = "Accept=application/json")//,produces = "application/json")
     public String getArticles(@RequestParam(value = "category",required = false)String category,
                               @RequestParam(value = "articleIds",required = false)List<String> articleIds,
                               @RequestParam(value = "from",required = false)Date formDate,

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ArticleDAO {
 
-    public void addArticle(Article article);
+    public Long saveArticle(Article article);
     public List<Article> getArticles();
     public Article getArticleById(Long articleId);
 

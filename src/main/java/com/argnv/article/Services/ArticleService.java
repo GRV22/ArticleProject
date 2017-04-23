@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ArticleService {
 
-    public void addArticle(Article article);
+    public Long addArticle(Article article);
     public List<Article> getArticles();
     public Article getArticleById(Long articleId);
 

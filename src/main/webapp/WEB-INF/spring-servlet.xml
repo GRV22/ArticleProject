@@ -29,6 +29,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.argnv.article.Models.Article</value>
+                <value>com.argnv.article.Models.ArticleCategory</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -47,4 +48,20 @@
         <property name="articleDAO" ref="articleDAO"></property>
     </bean>
 
+    <bean id="articleCategoryDAO" class="com.argnv.article.dao.ArticleCategoryDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+
+    <bean id="articleCategoryService" class="com.argnv.article.Services.ArticleCategoryServiceImpl">
+        <property name="articleCategoryDAO" ref="articleCategoryDAO"></property>
+    </bean>
+<!--
+    <bean id="customDAO" class="com.argnv.article.dao.CustomDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+
+    <bean id="customService" class="com.argnv.article.Services.CustomServiceImpl">
+        <property name="customDAO" ref="customDAO"></property>
+    </bean>
+-->
 </beans>

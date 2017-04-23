@@ -124,6 +124,27 @@
             <version>5.1.21</version>
         </dependency>
 
+        <!--For hypermedia things-->
+        <dependency>
+            <groupId>de.escalon.hypermedia</groupId>
+            <artifactId>hydra-spring</artifactId>
+            <version>0.3.1</version>
+        </dependency>
+        <!--For hypermedia things other than json-ld-->
+        <dependency>
+            <groupId>de.escalon.hypermedia</groupId>
+            <artifactId>spring-hateoas-ext</artifactId>
+            <version>0.3.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
+        </dependency>
+
 
 
     </dependencies>
