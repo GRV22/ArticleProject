@@ -1,5 +1,7 @@
 package com.argnv.article.dto;
 
+import com.argnv.article.Models.Category;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class CustomDTO {
     String description;
     String heading;
     Long creationTime;
+    List<Category> categories = new ArrayList<Category>();
     List<String> category=new ArrayList<String>();
 
 
@@ -67,6 +70,13 @@ public class CustomDTO {
         this.category = category;
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
     public String toString(){
         StringBuilder builder = new StringBuilder();

@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface ArticleCategoryDAO {
     public void addArticleCategory(Long articleId,List<String> categories);
-    public Long getArticleCategory(Long articleId);
+    public List<String> getArticleCategory(Long articleId);
 }

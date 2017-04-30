@@ -18,7 +18,7 @@
                 destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url"
-                        value="jdbc:mysql://localhost:3306/MYMAGZZY" />
+                        value="jdbc:mysql://localhost:3306/mydb1" />
         <property name="username" value="test" />
         <property name="password" value="test123" />
     </bean>
@@ -30,6 +30,7 @@
             <list>
                 <value>com.argnv.article.Models.Article</value>
                 <value>com.argnv.article.Models.ArticleCategory</value>
+                <value>com.argnv.article.Models.Category</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -54,6 +55,15 @@
 
     <bean id="articleCategoryService" class="com.argnv.article.Services.ArticleCategoryServiceImpl">
         <property name="articleCategoryDAO" ref="articleCategoryDAO"></property>
+    </bean>
+
+
+    <bean id="categoryDAO" class="com.argnv.article.dao.CategoryDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+
+    <bean id="categoryService" class="com.argnv.article.Services.CategoryServiceImpl">
+        <property name="categoryDAO" ref="categoryDAO"></property>
     </bean>
 <!--
     <bean id="customDAO" class="com.argnv.article.dao.CustomDAO">

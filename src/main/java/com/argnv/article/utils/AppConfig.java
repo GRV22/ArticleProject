@@ -10,8 +10,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * Created by root on 3/12/17.
  */
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter{
 //    @Bean
 //    public InternalResourceViewResolver viewResolver(){

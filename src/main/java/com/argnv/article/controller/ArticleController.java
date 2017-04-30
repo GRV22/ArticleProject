@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -22,7 +23,6 @@ public class ArticleController {
 
     private ArticleService articleService;
     private ArticleCategoryService articleCategoryService;
-    private CustomService customService;
 
     @Autowired(required = true)
     @Qualifier(value = "articleService")
@@ -36,42 +36,21 @@ public class ArticleController {
         this.articleCategoryService = articleCategoryService;
     }
 
-    //    @Autowired(required = true)
-//    @Qualifier(value = "customService")
-//    public void setCustomService(CustomService customService){
-//        this.customService = customService;
-//    }
-
     @RequestMapping(value = "/articles",method = RequestMethod.GET,produces = "application/json")
     public  List<Article> listArticles(){
         return this.articleService.getArticles();
     }
 
 
-
-    @RequestMapping(value = "article/add",method = RequestMethod.POST)
-    public String addArticle(@RequestBody CustomDTO customDTO){
+    @RequestMapping(value = "/articles/add",method = RequestMethod.POST)
+    public String addCustomDTO(@RequestBody CustomDTO customDTO){
         Article article = new Article();
         article.setHeading(customDTO.getHeading());
         article.setDescription(customDTO.getDescription());
         article.setCreationTime(customDTO.getCreationTime());
-        this.articleService.addArticle(article);
-//        this.customService.addArticleDetails(customDTO);
-        System.out.println("CustomDTO data:\n"+customDTO);
-        return "OK";
-    }
-
-    @RequestMapping(value = "article/addcustom",method = RequestMethod.POST)
-    public String addCustomDTO(@RequestBody CustomDTO customDTO){
-//        Article article = new Article();
-//        article.setHeading(customDTO.getHeading());
-//        article.setDescription(customDTO.getDescription());
-//        article.setCreationTime(customDTO.getCreationTime());
         List<String> categories = customDTO.getCategory();
-//        Long articleId = this.articleService.addArticle(article);
-        System.out.println("CustomDTO data:\n"+customDTO);
-        this.articleCategoryService.addArticleCategories(customDTO.getArticleId(),categories);
-        System.out.println("CustomDTO data:\n"+customDTO);
+        Long articleId = this.articleService.addArticle(article);
+        this.articleCategoryService.addArticleCategories(articleId,categories);
         return "OK";
     }
 

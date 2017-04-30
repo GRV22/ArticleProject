@@ -2,46 +2,39 @@ package com.argnv.article.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by root on 3/15/17.
  */
 @Entity
-@Table(name = "CATEGORY")
+@Table(name = "category")
 public class Category implements Serializable{
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long categoryId;
+    @Column(name = "categoryId",columnDefinition = "varchar(100) not null")
+    private String categoryId;
 
-    @Column(name = "category_name",columnDefinition = "varchar(100) not null")
-    private String categoryName;
-
-    @Column(name = "category_pic_url",columnDefinition = "text not null")
+    @Column(name = "categoryPicurl",columnDefinition = "text not null")
     private String categoryPicUrl;
 
-    @Column(name = "is_active",columnDefinition = "boolean default true")
-    private Boolean isActive;
+    @Column(name = "isActive",columnDefinition = "boolean default 1")
+    private Boolean isActive = Boolean.TRUE;
 
-    @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "creationTime", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
 
-    public Long getCategoryId() {
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "category",orphanRemoval = true, cascade= CascadeType.ALL)
+    Set<ArticleCategory> articleCategories;
+
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getCategoryPicUrl() {
         return categoryPicUrl;
@@ -51,11 +44,11 @@ public class Category implements Serializable{
         this.categoryPicUrl = categoryPicUrl;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
@@ -65,5 +58,13 @@ public class Category implements Serializable{
 
     public void setCreationTime(Long creationTime) {
         this.creationTime = creationTime;
+    }
+
+    public Set<ArticleCategory> getArticleCategories() {
+        return articleCategories;
+    }
+
+    public void setArticleCategorys(Set<ArticleCategory> articleCategories) {
+        this.articleCategories = articleCategories;
     }
 }

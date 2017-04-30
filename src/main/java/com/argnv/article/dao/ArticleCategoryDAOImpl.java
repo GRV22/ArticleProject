@@ -26,13 +26,13 @@ public class ArticleCategoryDAOImpl implements ArticleCategoryDAO {
             ArticleCategory articleCategory = new ArticleCategory();
             ArticleCategoryKey articleCategoryKey = new ArticleCategoryKey();
             articleCategoryKey.setArticleId(articleId);
-            articleCategoryKey.setCategeryId(Long.valueOf(categoryId));
+            articleCategoryKey.setCategeryId(categoryId);
             articleCategory.setKey(articleCategoryKey);
             session.save(articleCategory);
         }
     }
 
-    public Long getArticleCategory(Long articleId) {
+    public List<String> getArticleCategory(Long articleId) {
         Session session = this.sessionFactory.getCurrentSession();
         return null;
     }

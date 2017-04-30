@@ -9,18 +9,18 @@ import java.io.Serializable;
  */
 @Embeddable
 public class ArticleCategoryKey implements Serializable{
-    @Column(name = "category_id")
-    private Long categeryId;
+    @Column(name = "categoryId",columnDefinition = "varchar(100) not null")
+    private String categeryId;
 
-    @Column(name = "post_id")
+    @Column(name = "articleId",columnDefinition = "bigint(20) unsigned not null")
     private Long articleId;
 
 
-    public Long getCategeryId() {
+    public String getCategeryId() {
         return categeryId;
     }
 
-    public void setCategeryId(Long categeryId) {
+    public void setCategeryId(String categeryId) {
         this.categeryId = categeryId;
     }
 
@@ -51,12 +51,12 @@ public class ArticleCategoryKey implements Serializable{
         if (getClass() != obj.getClass())
             return false;
         ArticleCategoryKey other = (ArticleCategoryKey) obj;
-//        if (categeryId == null) {
-//            if (other.categeryId != null)
-//                return false;
-//        } else if (!categeryId.equals(other.categeryId))
-        if (categeryId!=(other.categeryId))
+        if (categeryId == null) {
+            if (other.categeryId != null)
+                return false;
+        } else if (!categeryId.equals(other.categeryId)){
             return false;
+        }
         if (articleId != other.articleId)
             return false;
         return true;

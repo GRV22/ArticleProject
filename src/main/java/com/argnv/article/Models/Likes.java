@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by root on 3/15/17.
  */
 @Entity
-@Table(name = "LIKES")
+@Table(name = "likes")
 public class Likes implements Serializable{
 
     @Id
@@ -15,13 +15,13 @@ public class Likes implements Serializable{
     @Column(name = "id")
     private Long likeId;
 
-    @Column(name = "user_id",columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "userId",columnDefinition = "bigint(20) unsigned not null")
     private Long userId;
 
-    @Column(name = "post_id",columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "articleId",columnDefinition = "bigint(20) unsigned not null")
     private Long articleId;
 
-    @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "creationTime", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
 
 

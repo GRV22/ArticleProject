@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by root on 3/15/17.
  */
 @Entity
-@Table(name = "USER_INTEREST")
+@Table(name = "user_interest")
 public class UserInterest {
 
     @Id
@@ -14,13 +14,13 @@ public class UserInterest {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id",columnDefinition = "bigint(20) not null")
+    @Column(name = "userId",columnDefinition = "bigint(20) not null")
     private Long userId;
 
-    @Column(name = "category_id",columnDefinition = "bigint(20) not null")
-    private Long categoryId;
+    @Column(name = "categoryId",columnDefinition = "varchar(100) not null")
+    private String categoryId;
 
-    @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "creationTime", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
 
     public Long getId() {
@@ -39,11 +39,11 @@ public class UserInterest {
         this.userId = userId;
     }
 
-    public Long getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 

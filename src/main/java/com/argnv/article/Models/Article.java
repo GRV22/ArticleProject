@@ -2,17 +2,21 @@ package com.argnv.article.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by root on 3/15/17.
  */
 @Entity
-@Table(name = "POST")
+@Table(name = "article")
 public class Article implements Serializable{
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "articleId")
     private Long articleId;
 
     @Column(columnDefinition = "text not null")
@@ -21,11 +25,15 @@ public class Article implements Serializable{
     @Column(name = "description",columnDefinition = "text not null")
     private String description;
 
-    @Column(name = "is_active",columnDefinition = "boolean default true")
+    @Column(name = "isActive",columnDefinition = "boolean default true")
     private boolean isActive;
 
-    @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "creationTime", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
+
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "article",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ArticleCategory> articleCategories;
+
 
     public Long getArticleId() {
         return articleId;
@@ -51,11 +59,11 @@ public class Article implements Serializable{
         this.description = description;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
@@ -65,5 +73,14 @@ public class Article implements Serializable{
 
     public void setCreationTime(Long creationTime) {
         this.creationTime = creationTime;
+    }
+
+
+    public List<ArticleCategory> getArticleCategories() {
+        return articleCategories;
+    }
+
+    public void setArticleCategories(List<ArticleCategory> articleCategories) {
+        this.articleCategories = articleCategories;
     }
 }

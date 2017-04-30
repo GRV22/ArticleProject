@@ -7,48 +7,48 @@ import java.io.Serializable;
  * Created by root on 3/15/17.
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class User implements Serializable{
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "userId")
     private Long userId;
 
-    @Column(name = "user_name",columnDefinition = "varchar(45) not null")
+    @Column(name = "userName",columnDefinition = "varchar(45) not null")
     private String userName;
 
-    @Column(name = "email",columnDefinition = "varchar(45) not null")
+    @Column(name = "emailId",columnDefinition = "varchar(45) not null")
     private String emailId;
 
     @Column(columnDefinition = "bigint(20) not null")
     private String phone;
 
-    @Column(name = "user_pic_url",columnDefinition = "text")
+    @Column(name = "userPicUrl",columnDefinition = "text")
     private String userPicUrl;
 
-    @Column(name = "user_age",columnDefinition = "bigint(20)")
+    @Column(name = "userAge",columnDefinition = "bigint(20)")
     private Integer userAge;
 
     @Column(columnDefinition = "varchar(45) not null")
     private String password;
 
-    @Column(name = "gcm_id",columnDefinition = "text")
+    @Column(name = "gcmId",columnDefinition = "text")
     private String gcmId;
 
-    @Column(name = "lat",columnDefinition = "double")
+    @Column(name = "latitude",columnDefinition = "double")
     private Double latitude;
 
-    @Column(name = "lon",columnDefinition = "double")
+    @Column(name = "longitude",columnDefinition = "double")
     private Double longitude;
 
-    @Column(name = "creation_time", columnDefinition = "bigint(20) unsigned not null")
+    @Column(name = "creationTime", columnDefinition = "bigint(20) unsigned not null")
     private Long creationTime;
 
-    @Column(name = "is_active",columnDefinition = "boolean default true")
+    @Column(name = "isActive",columnDefinition = "boolean default true")
     private Boolean isActive;
 
-    @Column(name = "is_block",columnDefinition = "boolean default false")
+    @Column(name = "isBlock",columnDefinition = "boolean default false")
     private Boolean isBlocked;
 
     public Long getUserId() {
